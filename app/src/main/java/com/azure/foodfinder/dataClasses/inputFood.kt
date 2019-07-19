@@ -1,5 +1,7 @@
 package com.azure.foodfinder.dataClasses
 
+import java.io.Serializable
+
 data class inputFood(
     val count: Int,
     val from: Int,
@@ -8,4 +10,6 @@ data class inputFood(
     //val params: Params,
     //val q: String,
     //val to: Int
-)
+): Serializable
+
+
