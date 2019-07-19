@@ -1,6 +1,6 @@
 package com.azure.foodfinder.RetrofitStuff
 
-import com.azure.foodfinder.dataClasses.inputFood
+import com.azure.foodfinder.dataClasses.principales.inputFood
 import com.azure.foodfinder.objects.FoodApi
 import retrofit2.Call
 import retrofit2.http.GET
@@ -12,9 +12,9 @@ interface RetroService {
     // fun getGenre(@Query("api_key") api_key : String = RetrofitConfig.apiKey, @Query("language") language: String = "es-ES"): Call<>
 
 
-    @GET("search?")
-    fun getRecipesByName(@Query("app_id") app_id: String = FoodApi.appID,
+    @GET("search")
+    fun getRecipesByName(@Query("q") recipeName: String = "pizza",
+                         @Query("app_id") app_id: String = FoodApi.appID,
                          @Query("app_key") app_key: String = FoodApi.appKEY,
-                         @Query("q") recipeName: String = "",
                          @Query("health") filter: String = ""):Call<inputFood>
 }
