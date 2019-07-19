@@ -15,6 +15,13 @@ interface RetroService {
     @GET("search")
     fun getRecipesByName(@Query("q") recipeName: String = "pizza",
                          @Query("app_id") app_id: String = FoodApi.appID,
+                         @Query("app_key") app_key: String = FoodApi.appKEY
+                         ):Call<inputFood>
+
+
+    @GET("search")
+    fun getRecipesFiltered(@Query("q") recipeName: String = "pizza",
+                         @Query("app_id") app_id: String = FoodApi.appID,
                          @Query("app_key") app_key: String = FoodApi.appKEY,
-                         @Query("health") filter: String = "vegan"):Call<inputFood>
+                         @Query("health") filter: String = ""):Call<inputFood>
 }

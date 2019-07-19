@@ -31,11 +31,12 @@ class searchOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Start Routing for retrofit to connect with the api :D
         initService(url)
-        getRecipesByName()
+        //init the function to get a recipe
+        getRecipesByName("pizza")
     }
 
-    fun getRecipesByName() {
-        val call = RetroConfig.service.getRecipesByName(recipeName = "pizza")
+    fun getRecipesByName(searchValue: String) {
+        val call = RetroConfig.service.getRecipesByName(recipeName = searchValue)
         call.enqueue(object : retrofit2.Callback<inputFood> {
             override fun onFailure(call: Call<inputFood>, t: Throwable) {
                 Log.e(
@@ -49,8 +50,9 @@ class searchOneFragment : Fragment() {
                 val body = response.body()
                 if (response.isSuccessful && body != null) {
                     inputFood = body
-                    Log.d("output", body.toString())
-
+                    //Log.d("output", body.toString())
+                    inputFood = body
+                    Log.d("output", inputFood.hits[1].recipe.ingredientLines.toString())
                 } else {
                     Log.e("output", "Body is empty")
                 }
