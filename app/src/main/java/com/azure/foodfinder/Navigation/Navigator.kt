@@ -23,10 +23,10 @@ object Navigator{
         }else{
             navigate?.commit()
         }
-    }*/
+    }
     //Function to change activity
-    fun ChangeActivity(activity: AppCompatActivity, context: Context,
-                       extra:Serializable?, extraName: String?, withExtra: Boolean ): Intent{
+    fun ChangeActivity(activity: AppCompatActivity, context: Context, withExtra: Boolean,
+                       extra:Serializable?, extraName: String? ): Intent{
         var intent = Intent(context, activity::class.java)
         if(withExtra){
             intent.putExtra(extraName, extra)
@@ -34,6 +34,6 @@ object Navigator{
         }else{
             return intent
         }
-    }
+    }*/
 
 }

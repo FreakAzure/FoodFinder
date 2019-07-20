@@ -1,14 +1,21 @@
 package com.azure.foodfinder
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.azure.foodfinder.Navigation.Navigator
 import com.azure.foodfinder.RetrofitStuff.RetroConfig
+import com.azure.foodfinder.RetrofitStuff.RetroConfig.data
 import com.azure.foodfinder.RetrofitStuff.RetroConfig.initService
+import com.azure.foodfinder.RetrofitStuff.RetroConfig.inputed
 import com.azure.foodfinder.RetrofitStuff.RetroConfig.url
+import com.azure.foodfinder.dataClasses.principales.Hit
+import com.azure.foodfinder.dataClasses.principales.Recipe
 import com.azure.foodfinder.dataClasses.principales.inputFood
 import com.azure.foodfinder.objects.filterClass
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,22 +23,25 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-lateinit var inputFood: inputFood
 
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var recipe: ArrayList<Recipe>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         //Start Routing for retrofit to connect with the api :D
         initService(url)
         spinner(filterClass.filters)
         var filter = spinner(filterClass.filters)
 
+
         searchButton.setOnClickListener{
             getRecipesByName(searchInput.text.toString())
+
         }
 
 
@@ -70,7 +80,10 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<inputFood>, response: Response<inputFood>) {
             val body = response.body()
                 if(response.isSuccessful && body != null){
-                    Log.v("output", body.toString())
+                    data = body.hits
+                    inputed = search
+                    changeActivity()
+
                 }else{
                     Log.v("output", "body comes empty")
                 }
@@ -79,5 +92,9 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+    }
+    fun changeActivity(){
+        val intent = Intent(this, recipeShowerActivity::class.java)
+        startActivity(intent)
     }
 }

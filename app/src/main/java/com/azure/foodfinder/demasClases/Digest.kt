@@ -1,5 +1,7 @@
 package com.azure.foodfinder.demasClases
 
+import java.io.Serializable
+
 data class Digest(
     val daily: Double,
     val hasRDI: Boolean,
@@ -9,4 +11,4 @@ data class Digest(
     val tag: String,
     val total: Double,
     val unit: String
-)
+):Serializable
