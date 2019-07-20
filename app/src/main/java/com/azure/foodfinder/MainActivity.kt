@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.azure.foodfinder.Navigation.Navigator
 import com.azure.foodfinder.RetrofitStuff.RetroConfig
@@ -40,7 +41,12 @@ class MainActivity : AppCompatActivity() {
 
 
         searchButton.setOnClickListener{
-            getRecipesByName(searchInput.text.toString())
+            if(searchInput.text.toString().isNotEmpty()){
+                getRecipesByName(searchInput.text.toString())
+        }else{
+                Toast.makeText(this, "Please, input a recipe", Toast.LENGTH_SHORT).show()
+            }
+
 
         }
 

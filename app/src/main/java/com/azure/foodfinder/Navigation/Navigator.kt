@@ -14,18 +14,16 @@ object Navigator{
 
 
 //Function to navigate between fragments
-    /*fun ChangeFragment(activity: AppCompatActivity?, fragment: Fragment,
-                       name: String, backStack: Boolean = true, rid: Int ){
-        val navigate = activity?.supportFragmentManager?.beginTransaction()?.replace( rid
-            fragment, "redFragment")
-        if(backStack){
-            navigate?.addToBackStack(name)?.commit()
-        }else{
-            navigate?.commit()
-        }
+fun ChangeFragment(activity: AppCompatActivity?, fragment: Fragment, name: String, backStack: Boolean = true ){
+    val navigate = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.mainFrame, fragment, "redFragment")
+    if(backStack){
+        navigate?.addToBackStack(name)?.commit()
+    }else{
+        navigate?.commit()
     }
+}
     //Function to change activity
-    fun ChangeActivity(activity: AppCompatActivity, context: Context, withExtra: Boolean,
+    /*fun ChangeActivity(activity: AppCompatActivity, context: Context, withExtra: Boolean,
                        extra:Serializable?, extraName: String? ): Intent{
         var intent = Intent(context, activity::class.java)
         if(withExtra){
