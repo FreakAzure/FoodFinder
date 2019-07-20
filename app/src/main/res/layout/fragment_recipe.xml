@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".fragments.RecipeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+                android:id="@+id/recipeImage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/gradient"
+        />
+        <TextView
+                android:id="@+id/recipeName"
+                app:layout_constraintTop_toBottomOf="@id/recipeImage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/Ingredients_"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Recipe Name"
+                android:textSize="25sp"
+                android:textColor="#272727"
+        />
+        <TextView
+                android:id="@+id/source"
+                app:layout_constraintTop_toBottomOf="@id/recipeImage"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="13dp"
+                android:textSize="20sp"
+                android:text="BBC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#272727"
+        />
+        <TextView
+                android:id="@+id/Ingredients_"
+                android:layout_marginTop="20sp"
+                android:text="Ingredients:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/recipeName"
+                android:textSize="17sp"
+
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/Ingredients_"
+                android:layout_marginTop="10dp"
+        >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
