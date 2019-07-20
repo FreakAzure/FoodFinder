@@ -12,6 +12,7 @@ import com.azure.foodfinder.RetrofitStuff.RetroConfig
 import com.azure.foodfinder.RetrofitStuff.RetroConfig.initService
 import com.azure.foodfinder.RetrofitStuff.RetroConfig.url
 import com.azure.foodfinder.dataClasses.principales.inputFood
+import kotlinx.android.synthetic.main.fragment_search_one.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -31,8 +32,12 @@ class searchOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Start Routing for retrofit to connect with the api :D
         initService(url)
+        searchButton.setOnClickListener {
+            val search = searchInput.text.toString()
+            getRecipesByName(search)
+        }
         //init the function to get a recipe
-        getRecipesByName("pizza")
+
     }
 
     fun getRecipesByName(searchValue: String) {
@@ -52,7 +57,8 @@ class searchOneFragment : Fragment() {
                     inputFood = body
                     //Log.d("output", body.toString())
                     inputFood = body
-                    Log.d("output", inputFood.hits[1].recipe.ingredientLines.toString())
+                    Log.d("output", inputFood.hits.toString())
+
                 } else {
                     Log.e("output", "Body is empty")
                 }
