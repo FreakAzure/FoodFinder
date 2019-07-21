@@ -32,7 +32,7 @@ class IngredientAdapter(private val dame: List<String>) : RecyclerView.Adapter<I
         @SuppressLint("ResourceAsColor", "SetTextI18n")
         fun bind(item: String) {
             Log.v("ingredient", item)
-            itemView.ingredientItem.text = "· $item"
+            itemView.ingredientText.text = "· $item"
 
         }
     }
