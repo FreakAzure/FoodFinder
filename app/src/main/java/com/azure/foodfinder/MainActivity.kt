@@ -68,6 +68,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        disableSpinner(spinnerThing)
+    }
+
     fun Spinner(filter: List<String>): String {
         var filtered = ""
         val search = searchInput.text.toString()
