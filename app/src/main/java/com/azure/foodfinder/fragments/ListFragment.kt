@@ -34,7 +34,7 @@ class ListFragment : Fragment() {
 
         initAdapter()
         adapter.onClickRecipe = {
-            val navigate = activity?.supportFragmentManager?.beginTransaction()?.replace(
+            activity?.supportFragmentManager?.beginTransaction()?.replace(
                 R.id.mainFrame,
                 RecipeFragment(), "redFragment"
             )?.addToBackStack("recipeFragment")?.commit()
