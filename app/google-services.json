@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "953928296126",
-    "firebase_url": "https://foodstuff-5eb71.firebaseio.com",
-    "project_id": "foodstuff-5eb71",
-    "storage_bucket": "foodstuff-5eb71.appspot.com"
+    "project_number": "619272787173",
+    "firebase_url": "https://foodfinder-10191.firebaseio.com",
+    "project_id": "foodfinder-10191",
+    "storage_bucket": "foodfinder-10191.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:953928296126:android:975cc9372b265855",
+        "mobilesdk_app_id": "1:619272787173:android:975cc9372b265855",
         "android_client_info": {
           "package_name": "com.azure.foodfinder"
         }
       },
       "oauth_client": [
         {
-          "client_id": "953928296126-mvtl47intej8q1gq4r6375iueuj32mjp.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.azure.foodfinder",
-            "certificate_hash": "929f0e64f40756105afcc49321828a3550781118"
-          }
-        },
-        {
-          "client_id": "953928296126-1obq0pr1p6bfiqk903iblb0g76k02t47.apps.googleusercontent.com",
+          "client_id": "619272787173-sjubregsjvvprstn83db0fcd03v6qiut.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB4x_X-YWhn2g5R1PvuRMfsg-0RZCfqxB4"
+          "current_key": "AIzaSyDbxwHpb7dTjAoTwXTgMr9251aqMCcl3ls"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "953928296126-1obq0pr1p6bfiqk903iblb0g76k02t47.apps.googleusercontent.com",
+              "client_id": "619272787173-sjubregsjvvprstn83db0fcd03v6qiut.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -23,8 +23,8 @@ fun ChangeFragment(activity: AppCompatActivity?, fragment: Fragment, frame: Int,
     }
 }
     //Function to change activity
-    /*fun ChangeActivity(activity: AppCompatActivity, context: Context, withExtra: Boolean,
-                       extra:Serializable?, extraName: String? ): Intent{
+    fun ChangeActivity(activity: AppCompatActivity, context: Context?, withExtra: Boolean,
+                       extra:Serializable? = null, extraName: String? = null ): Intent{
         var intent = Intent(context, activity::class.java)
         if(withExtra){
             intent.putExtra(extraName, extra)
@@ -32,6 +32,6 @@ fun ChangeFragment(activity: AppCompatActivity?, fragment: Fragment, frame: Int,
         }else{
             return intent
         }
-    }*/
+    }
 
 }
