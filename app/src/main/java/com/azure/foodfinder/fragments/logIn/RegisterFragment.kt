@@ -33,6 +33,8 @@ class RegisterFragment : Fragment() {
         }
 
 
+
+
     }
 
     fun createUser(){
@@ -48,6 +50,7 @@ class RegisterFragment : Fragment() {
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d(TAG, "createUserWithEmail:success, user uid: ${user?.uid}")
                 startActivity( ChangeActivity(MainActivity(), context, false))
+                activity?.finish()
 
 
             } else {
@@ -62,5 +65,7 @@ class RegisterFragment : Fragment() {
             // ...
         }
     }
+
+
 }
 

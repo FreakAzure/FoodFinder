@@ -41,6 +41,7 @@ class LogInFragment : Fragment() {
             signIn()
         }
 
+
     }
     fun signIn(){
         val email = loginEmail.text.toString()
@@ -53,12 +54,13 @@ class LogInFragment : Fragment() {
                     val user = auth.currentUser
                     Log.d(TAG, "signInWithEmail:success")
                     startActivity(ChangeActivity(MainActivity(), context, false))
+                    activity?.finish()
 
 
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(context, "Authentication failed.",
+                    Toast.makeText(context, "Authentication failed: ${task.exception}",
                         Toast.LENGTH_SHORT).show()
 
                 }

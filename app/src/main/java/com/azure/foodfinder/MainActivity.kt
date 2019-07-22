@@ -15,6 +15,7 @@ import com.azure.foodfinder.dataClasses.principales.Recipe
 import com.azure.foodfinder.dataClasses.principales.inputFood
 import com.azure.foodfinder.objects.FoodApi.url
 import com.azure.foodfinder.objects.filterClass
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,6 +33,26 @@ class MainActivity : AppCompatActivity() {
         initService(url)
         disableSpinner(spinnerThing)
         Spinner(filterClass.filters)
+        checkForFilter()
+
+
+        searchButton.setOnClickListener {
+            if (searchInput.text.toString().isNotEmpty()) {
+                getRecipesByName(searchInput.text.toString())
+            } else {
+                Toast.makeText(this, "Please, input a recipe", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        disableSpinner(spinnerThing)
+    }
+    fun checkForFilter(){
         filterCheck.setOnClickListener{
             if(filterCheck.isChecked){
                 enableSpinner(spinnerThing)
@@ -55,25 +76,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        var filter = Spinner(filterClass.filters)
-
-        searchButton.setOnClickListener {
-            if (searchInput.text.toString().isNotEmpty()) {
-                getRecipesByName(searchInput.text.toString())
-            } else {
-                Toast.makeText(this, "Please, input a recipe", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-
     }
-
-    override fun onResume() {
-        super.onResume()
-
-        disableSpinner(spinnerThing)
-    }
-
     fun Spinner(filter: List<String>): String {
         var filtered = ""
         val search = searchInput.text.toString()
