@@ -15,7 +15,7 @@ class recipeShowerActivity : AppCompatActivity() {
 
         getSupportActionBar()?.setTitle("Search: $inputed")
 
-        ChangeFragment(this, ListFragment(), "listFragment", false)
+        ChangeFragment(this, ListFragment(), R.id.mainFrame,"listFragment", false)
 
 
     }

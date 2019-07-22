@@ -14,8 +14,8 @@ object Navigator{
 
 
 //Function to navigate between fragments
-fun ChangeFragment(activity: AppCompatActivity?, fragment: Fragment, name: String, backStack: Boolean = true ){
-    val navigate = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.mainFrame, fragment, "redFragment")
+fun ChangeFragment(activity: AppCompatActivity?, fragment: Fragment, frame: Int,name: String?, backStack: Boolean = false ){
+    val navigate = activity?.supportFragmentManager?.beginTransaction()?.replace(frame, fragment, "redFragment")
     if(backStack){
         navigate?.addToBackStack(name)?.commit()
     }else{
