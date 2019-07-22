@@ -9,14 +9,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetroConfig {
 
     lateinit var service: RetroService
-    val url = FoodApi.url
     var data = arrayListOf<Hit>()
     lateinit var recipeData: Recipe
     var inputed = ""
 
     fun initService(url: String) {
         val retrofit = Retrofit.Builder()
-            .baseUrl(url)
+            .baseUrl(FoodApi.url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

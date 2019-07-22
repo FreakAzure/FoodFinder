@@ -1,50 +1,50 @@
 package com.azure.foodfinder.fragments
 
-import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-
-import com.azure.foodfinder.R
-import com.azure.foodfinder.RetrofitStuff.RetroConfig
-import com.azure.foodfinder.adapter.IngredientAdapter
-import com.azure.foodfinder.adapter.MyAdapter
+import com.azure.foodfinder.RetrofitStuff.RetroConfig.recipeData
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_recipe.*
-import kotlinx.android.synthetic.main.lists_fragment.*
 
 
 class RecipeFragment : Fragment() {
 
     lateinit var recycler: RecyclerView
-    lateinit var adapter: IngredientAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipe, container, false)
+        return inflater.inflate(com.azure.foodfinder.R.layout.fragment_recipe, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initAdapter()
+
+        Picasso.get().load(recipeData.image).into(recipeImage)
+        recipeName.text = recipeData.label
+        source.text = "Source: ${recipeData.source}"
+        setIngredients(recipeData.ingredientLines)
+        showUrl.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(recipeData.url))
+            startActivity(browserIntent)
+        }
     }
 
-    fun initAdapter() {
-        recycler = recyclerIngredients
-        val mLayoutManager = LinearLayoutManager(context)
-        recycler.layoutManager = mLayoutManager
-        adapter = IngredientAdapter(RetroConfig.recipeData.ingredientLines)
-        recycler.adapter = adapter
+    fun setIngredients(ingredients: List<String>) {
+        var ingredientLined = ""
+        for ((index, item) in ingredients.withIndex()) {
+            ingredientLined += ". $item  \n"
+        }
+        Log.v("ingrediens", ingredientLined)
+        ingredientList.text = ingredientLined
     }
 }

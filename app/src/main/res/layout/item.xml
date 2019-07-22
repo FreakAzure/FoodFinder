@@ -8,6 +8,7 @@
              android:foreground="?android:attr/selectableItemBackground"
              android:clickable="true"
              android:focusable="true"
+             android:background="#FFFFFF"
 >
 
     <com.google.android.material.card.MaterialCardView
@@ -29,7 +30,7 @@
                    app:layout_constraintRight_toRightOf="parent"
                    android:layout_width="match_parent"
                    android:layout_height="150dp"
-                   android:src="@mipmap/ic_launcher"
+                   tools:src="@mipmap/ic_launcher"
                    android:scaleType="centerCrop"
 
            />
@@ -46,7 +47,8 @@
                    android:layout_marginStart="10dp"
                    android:layout_marginLeft="10dp"
                    android:textColor="#272727"
-
+                   android:ellipsize="end"
+                   android:maxLines="2"
            />
            <TextView
                    android:id="@+id/yield"

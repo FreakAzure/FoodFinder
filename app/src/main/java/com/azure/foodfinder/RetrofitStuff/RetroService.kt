@@ -15,7 +15,9 @@ interface RetroService {
     @GET("search")
     fun getRecipesByName(@Query("q") recipeName: String,
                          @Query("app_id") app_id: String = FoodApi.appID,
-                         @Query("app_key") app_key: String = FoodApi.appKEY
+                         @Query("app_key") app_key: String = FoodApi.appKEY,
+                         @Query("from") from : String = "0",
+                         @Query("to") to: String = "100"
                          ):Call<inputFood>
 
 
@@ -23,5 +25,7 @@ interface RetroService {
     fun getRecipesFiltered(@Query("q") recipeName: String,
                          @Query("app_id") app_id: String = FoodApi.appID,
                          @Query("app_key") app_key: String = FoodApi.appKEY,
-                         @Query("health") filter: String):Call<inputFood>
+                         @Query("health") filter: String,
+                           @Query("from") from : String = "0",
+                           @Query("to") to: String = "100"):Call<inputFood>
 }
