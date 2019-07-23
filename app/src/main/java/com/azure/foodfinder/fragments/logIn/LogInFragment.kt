@@ -35,10 +35,17 @@ class LogInFragment : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()?.replace(
                 R.id.loginFrame,
                 RegisterFragment(), "registerFragment"
-            )?.addToBackStack("redFragment")?.commit()
+            )?.addToBackStack("registerFragment")?.commit()
         }
         logInBtn.setOnClickListener{
             signIn()
+        }
+
+        RecoverBtn.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(
+                R.id.loginFrame,
+                PassRecoverFragment(), "passRecover"
+            )?.addToBackStack("PassRecover")?.commit()
         }
 
 

@@ -82,6 +82,26 @@
              style="@style/Widget.MaterialComponents.Button.TextButton"
              android:text="Register!"
      />
+     <TextView
+             android:id="@+id/recoverText"
+             android:layout_marginTop="14dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintTop_toBottomOf="@id/RegisterButton"
+             app:layout_constraintLeft_toLeftOf="parent"
+             android:text="Lost your password?"
+     />
+
+     <com.google.android.material.button.MaterialButton
+             android:id="@+id/RecoverBtn"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintTop_toBottomOf="@id/RegisterButton"
+             app:layout_constraintLeft_toRightOf="@id/recoverText"
+             style="@style/Widget.MaterialComponents.Button.TextButton"
+             android:text="Recover!"
+     />
+
 
  </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

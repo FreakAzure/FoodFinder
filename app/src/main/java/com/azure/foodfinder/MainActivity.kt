@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.azure.foodfinder.Navigation.Navigator.ChangeActivity
 import com.azure.foodfinder.RetrofitStuff.RetroConfig
 import com.azure.foodfinder.RetrofitStuff.RetroConfig.data
 import com.azure.foodfinder.RetrofitStuff.RetroConfig.initService
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         disableSpinner(spinnerThing)
         Spinner(filterClass.filters)
         checkForFilter()
+        logOut()
 
 
         searchButton.setOnClickListener {
@@ -151,5 +153,13 @@ class MainActivity : AppCompatActivity() {
         spinner.setEnabled(false)
         spinner.setClickable(false)
         Spinner(filterClass.filters)
+    }
+
+    fun logOut(){
+        logOutBtn.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(ChangeActivity(LogInActivity(), this, false))
+            finish()
+        }
     }
 }
