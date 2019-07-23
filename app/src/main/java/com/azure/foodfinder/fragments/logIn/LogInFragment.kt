@@ -38,7 +38,7 @@ class LogInFragment : Fragment() {
             )?.addToBackStack("registerFragment")?.commit()
         }
         logInBtn.setOnClickListener{
-            signIn()
+            LogIn()
         }
 
         RecoverBtn.setOnClickListener {
@@ -50,7 +50,7 @@ class LogInFragment : Fragment() {
 
 
     }
-    fun signIn(){
+    fun LogIn(){
         val email = loginEmail.text.toString()
         val password = loginPass.text.toString()
         val auth = FirebaseAuth.getInstance()
