@@ -13,6 +13,7 @@ import com.azure.foodfinder.Navigation.Navigator.ChangeActivity
 import com.azure.foodfinder.Navigation.Navigator.ChangeFragment
 import com.azure.foodfinder.R
 import com.azure.foodfinder.dataClasses.principales.User
+import com.azure.foodfinder.firebaseLogic.FirebaseLogic
 import com.azure.foodfinder.firebaseLogic.FirebaseLogic.createUser
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -34,7 +35,12 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         TAG = "register"
         registerBtn.setOnClickListener {
-            if(!createUser(emailInput, passwordInput, userName, context)){
+
+            val UN = userName.text.toString()
+            val uid = FirebaseLogic.auth.uid ?: ""
+            val favRecipe = ArrayList<String>()
+            val user = User(UN, uid, favRecipe)
+            if(!createUser(emailInput, passwordInput, userName, context, user)){
                 Log.v(TAG, "something went wrong ma boy")
             }
             Log.v(TAG, "It's entering here")

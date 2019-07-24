@@ -6,6 +6,7 @@ import com.azure.foodfinder.Navigation.Navigator.ChangeFragment
 import com.azure.foodfinder.RetrofitStuff.RetroConfig.inputed
 import com.azure.foodfinder.fragments.ListFragment
 import kotlinx.android.synthetic.main.activity_recipe_shower.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class recipeShowerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -23,6 +23,8 @@
                android:layout_height="match_parent"
 
        >
+
+
            <ImageView
                    android:id="@+id/recipePic"
                    app:layout_constraintTop_toTopOf="parent"
@@ -85,6 +87,7 @@
                    tools:text="Vegan"
 
            />
+
 
        </androidx.constraintlayout.widget.ConstraintLayout>
 
