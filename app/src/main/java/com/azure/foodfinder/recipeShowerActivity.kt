@@ -14,17 +14,18 @@ class recipeShowerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recipe_shower)
         setSupportActionBar(miToolbar)
 
-        getSupportActionBar()?.setTitle("Search: $inputed")
+        supportActionBar?.title = "Search: $inputed"
+        supportActionBar?.setHomeButtonEnabled(true)
 
         ChangeFragment(this, ListFragment(), R.id.mainFrame,"listFragment", false)
 
 
     }
-    override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 0) {
-            supportFragmentManager.popBackStackImmediate()
-        } else {
-            super.onBackPressed()
-        }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+
     }
+
 }
